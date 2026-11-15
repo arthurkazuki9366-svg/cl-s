@@ -1,0 +1,179 @@
+# ============================================================
+#  SharkClans - Sistema de Clãs para o SharkSMP
+#  Compatível com Paper 1.20+
+#  Use /clan admin recarregar para aplicar mudanças deste arquivo.
+# ============================================================
+
+# Prefixo adicionado antes das mensagens do plugin
+prefix: "&3&lSharkSMP &8» &r"
+
+clan:
+  # Quantidade máxima de membros por clã (incluindo líder e sub-líderes)
+  max-members: 10
+  # Quantidade máxima de sub-líderes por clã (-1 = ilimitado)
+  max-sub-leaders: 3
+  # Sub-líderes podem expulsar membros comuns?
+  sub-leader-can-kick: true
+  # Tempo (em segundos) até um convite expirar
+  invite-expire-seconds: 60
+
+  name:
+    # Tamanho do nome do clã (apenas letras, números e _)
+    min-length: 3
+    max-length: 16
+
+  tag:
+    # Tamanho da tag (apenas letras e números)
+    min-length: 2
+    max-length: 5
+    # Cor inicial da tag: 0-9 ou a-f (ex.: b = ciano). O líder pode mudar na GUI.
+    default-color: "b"
+    # Como a tag aparece antes do nome. Variáveis: {color} e {tag}
+    chat-format: "&8[{color}{tag}&8] &r"
+
+chat:
+  # Mostrar a tag antes do nome dos jogadores no chat?
+  show-tag: true
+  # Texto entre o nome do jogador e a mensagem
+  separator: "&7: &f"
+  # Registrar o chat do clã no console?
+  log-clan-chat: true
+
+# Nomes dos cargos
+roles:
+  leader: "Líder"
+  sub-leader: "Sub-líder"
+  member: "Membro"
+
+# ------------------------------------------------------------
+#  Mensagens (suportam cores com & e hex com &#rrggbb)
+# ------------------------------------------------------------
+messages:
+  # --- gerais ---
+  no-permission: "&cVocê não tem permissão para isso."
+  only-players: "&cApenas jogadores podem usar este comando."
+  no-clan: "&cVocê não faz parte de nenhum clã."
+  already-in-clan: "&cVocê já faz parte de um clã."
+  unknown-subcommand: "&cSubcomando desconhecido. Use &f/clan ajuda&c."
+  usage: "&cUso correto: &f{usage}"
+  clan-not-found: "&cO clã &f{clan} &cnão existe."
+  player-not-found: "&cJogador &f{player} &cnão encontrado ou offline."
+  target-not-member: "&cO jogador &f{player} &cnão é membro do seu clã."
+  only-leader: "&cApenas o líder do clã pode fazer isso."
+  only-leader-or-sub: "&cApenas o líder ou sub-líderes podem fazer isso."
+  reloaded: "&aConfiguração e dados recarregados com sucesso."
+
+  # --- criação / exclusão ---
+  invalid-name: "&cNome inválido. Use de &f{min} &ca &f{max} &ccaracteres (letras, números e _)."
+  name-taken: "&cJá existe um clã chamado &f{clan}&c."
+  invalid-tag: "&cTag inválida. Use de &f{min} &ca &f{max} &ccaracteres (apenas letras e números)."
+  tag-taken: "&cA tag &f{tag} &cjá está em uso por outro clã."
+  tag-generate-failed: "&cNão foi possível gerar uma tag automática. Tente outro nome."
+  clan-created: "&aClã &b{clan} &acriado com sucesso! Tag inicial: &b{tag}&a. Altere-a no painel (&f/clan&a)."
+  clan-created-broadcast: "&7O jogador &f{player} &7criou o clã &b{clan}&7!"
+  clan-deleted: "&aO clã &b{clan} &afoi excluído."
+  clan-deleted-notify: "&cO clã &f{clan} &cfoi excluído pelo líder."
+
+  # --- convites ---
+  invite-sent: "&aConvite enviado para &f{player}&a."
+  invite-received: "&b{player} &7convidou você para o clã &b{clan}&7. Expira em &f{seconds}s&7."
+  invite-accept-button: "&a&l[ACEITAR]"
+  invite-accept-hover: "&7Clique para aceitar o convite"
+  invite-decline-button: "&c&l[RECUSAR]"
+  invite-decline-hover: "&7Clique para recusar o convite"
+  cannot-invite-self: "&cVocê não pode convidar a si mesmo."
+  target-already-in-clan: "&cO jogador &f{player} &cjá faz parte de um clã."
+  already-invited: "&cO jogador &f{player} &cjá possui um convite pendente do seu clã."
+  clan-full: "&cEste clã está cheio (máximo de &f{max} &cmembros)."
+  no-invites: "&cVocê não possui convites pendentes."
+  invite-not-found: "&cVocê não possui convite do clã &f{clan}&c."
+  invite-expired: "&cEste convite expirou ou o clã não existe mais."
+  invite-accepted: "&aVocê entrou no clã &b{clan}&a!"
+  invite-declined: "&eVocê recusou o convite do clã &f{clan}&e."
+  invite-declined-notify: "&e{player} &7recusou seu convite."
+  member-joined: "&a{player} &7entrou no clã!"
+
+  # --- sair / expulsar ---
+  left-clan: "&eVocê saiu do clã &f{clan}&e."
+  member-left: "&e{player} &7saiu do clã."
+  leader-cannot-leave: "&cO líder não pode sair do clã. Transfira a liderança (&f/clan lider&c) ou exclua o clã (&f/clan deletar&c)."
+  member-kicked: "&aVocê expulsou &f{player} &ado clã."
+  you-were-kicked: "&cVocê foi expulso do clã &f{clan}&c."
+  member-kicked-notify: "&c{player} &7foi expulso do clã."
+  cannot-kick-self: "&cVocê não pode expulsar a si mesmo. Use &f/clan sair&c."
+  cannot-kick-leader: "&cO líder do clã não pode ser expulso."
+  cannot-kick-higher: "&cVocê não tem permissão para expulsar este jogador."
+
+  # --- cargos ---
+  member-promoted: "&aVocê promoveu &f{player} &aa sub-líder."
+  you-were-promoted: "&aVocê foi promovido a &bsub-líder &ado clã &f{clan}&a!"
+  member-promoted-notify: "&b{player} &7foi promovido a sub-líder."
+  member-demoted: "&eVocê rebaixou &f{player} &ea membro."
+  you-were-demoted: "&eVocê foi rebaixado a membro do clã &f{clan}&e."
+  member-demoted-notify: "&e{player} &7foi rebaixado a membro."
+  already-sub: "&c{player} já é sub-líder."
+  not-sub: "&c{player} não é sub-líder."
+  cannot-promote-leader: "&cO líder já possui o cargo máximo."
+  max-sub-leaders: "&cO clã já atingiu o limite de &f{max} &csub-líderes."
+  already-leader: "&cEste jogador já é o líder do clã."
+  leadership-transferred: "&aVocê transferiu a liderança para &f{player}&a. Agora você é sub-líder."
+  leadership-notify: "&6{player} &7é o novo líder do clã!"
+
+  # --- tag ---
+  tag-changed: "&aTag do clã alterada para &b{tag}&a."
+  tag-color-changed: "&aCor da tag alterada com sucesso."
+
+  # --- chat do clã ---
+  chat-enabled: "&aChat do clã &lATIVADO&a. Suas mensagens vão apenas para o clã. Use &f/clan chat &apara desativar."
+  chat-disabled: "&eChat do clã &lDESATIVADO&e. Suas mensagens voltam ao chat público."
+  clan-chat-prefix: "&8[&9Clã&8] {rolecolor}{player}&8: &f"
+
+  # --- GUI (digitar no chat) ---
+  prompt-create: "&eDigite no chat o &lnome do clã &e({min} a {max} caracteres) ou &fcancelar&e."
+  prompt-tag: "&eDigite no chat a &lnova tag &e({min} a {max} caracteres) ou &fcancelar&e."
+  prompt-cancelled: "&7Ação cancelada."
+
+  # --- /clan info e /clan listar ---
+  info-header: "&8&m          &r &b&l{clan} &8&m          "
+  info-tag: "&7Tag: {tag}"
+  info-leader: "&7Líder: &6{leader}"
+  info-size: "&7Membros: &f{size}&7/&f{max}"
+  info-created: "&7Criado em: &f{date}"
+  info-members-title: "&7Integrantes:"
+  info-member: "  {color}{player} &8- &7{role} {status}"
+  status-online: "&a●"
+  status-offline: "&c●"
+  list-empty: "&eNenhum clã foi criado ainda."
+  list-header: "&8&m     &r &b&lClãs &7(página {page}/{pages} - {total} no total) &8&m     "
+  list-line: "&b{clan} &8| {tag} &7Líder: &f{leader} &8| &7Membros: &f{size}&7/&f{max}"
+  list-next: "&7Use &f/clan listar {page} &7para a próxima página."
+
+  # --- admin ---
+  admin-deleted: "&aClã &b{clan} &aexcluído pela administração."
+  admin-kicked: "&aJogador &f{player} &afoi removido do clã &b{clan}&a."
+  admin-player-no-clan: "&cO jogador &f{player} &cnão está em nenhum clã."
+
+  # --- ajuda ---
+  help:
+    - "&8&m          &r &b&lSharkSMP Clãs &8&m          "
+    - "&f/clan &8- &7Abre o painel principal"
+    - "&f/clan criar <nome> &8- &7Cria um clã"
+    - "&f/clan convidar <jogador> &8- &7Convida um jogador"
+    - "&f/clan aceitar &8- &7Aceita um convite"
+    - "&f/clan recusar &8- &7Recusa um convite"
+    - "&f/clan sair &8- &7Sai do clã"
+    - "&f/clan expulsar <jogador> &8- &7Expulsa um membro"
+    - "&f/clan promover <jogador> &8- &7Promove a sub-líder"
+    - "&f/clan rebaixar <jogador> &8- &7Remove o cargo de sub-líder"
+    - "&f/clan lider <jogador> &8- &7Transfere a liderança"
+    - "&f/clan deletar &8- &7Exclui o clã"
+    - "&f/clan info [clã] &8- &7Informações do clã"
+    - "&f/clan listar [página] &8- &7Lista todos os clãs"
+    - "&f/clan chat [mensagem] &8- &7Ativa/desativa o chat do clã"
+  help-admin:
+    - "&c&lAdministração:"
+    - "&f/clan admin deletar <clã> &8- &7Exclui qualquer clã"
+    - "&f/clan admin expulsar <jogador> &8- &7Remove um jogador de seu clã"
+    - "&f/clan admin tag <clã> <tag> &8- &7Altera a tag de um clã"
+    - "&f/clan admin lider <clã> <jogador> &8- &7Define o líder de um clã"
+    - "&f/clan admin recarregar &8- &7Recarrega config e dados"

@@ -1,0 +1,30 @@
+name: SharkClans
+version: '${project.version}'
+main: com.sharksmp.clans.SharkClans
+api-version: '26.3'
+description: Sistema completo de clas para o SharkSMP
+authors: [SharkSMP]
+
+commands:
+  clan:
+    description: Sistema de clas do SharkSMP
+    usage: /clan [subcomando]
+    aliases: [clans]
+
+permissions:
+  sharkclans.use:
+    description: Permite usar o sistema de clas
+    default: true
+  sharkclans.create:
+    description: Permite criar clas
+    default: true
+  sharkclans.admin:
+    description: Permite administrar qualquer cla (/clan admin ...)
+    default: op
+  sharkclans.*:
+    description: Todas as permissoes do SharkClans
+    default: op
+    children:
+      sharkclans.use: true
+      sharkclans.create: true
+      sharkclans.admin: true
